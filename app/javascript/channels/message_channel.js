@@ -9,6 +9,7 @@ const messageChannel = consumer.subscriptions.create("MessageChannel", {
   },
 
   received(data) {
+    console.log(data)
     const messageDisplay = document.querySelector('#message-display')
     messageDisplay.insertAdjacentHTML('beforeend', this.template(data))
   },
@@ -16,15 +17,15 @@ const messageChannel = consumer.subscriptions.create("MessageChannel", {
   template(data) {
     return `<article class="message">
               <div class="message-header">
-                <p>${data.user.email}</p>
+                <p>${data.user_id}</p>
               </div>
               <div class="message-body">
-                <p>${data.message.body}</p>
+                <p>${data.body}</p>
               </div>
             </article>`
   }
 });
-
+/*
 document.addEventListener("turbolinks:load", () => {
   let form = document.querySelector('#message-form')
   if(form) {
@@ -39,3 +40,4 @@ document.addEventListener("turbolinks:load", () => {
     })
   }
 })
+*/
