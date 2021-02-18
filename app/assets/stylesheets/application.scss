@@ -15,3 +15,12 @@
  */
 
  @import 'bulma';
+
+ #message-display {
+  height: 50vh;
+  overflow: auto
+}
+
+#message-input {
+  width: 60vw;
+}
