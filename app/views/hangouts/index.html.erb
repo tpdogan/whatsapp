@@ -1,10 +1,12 @@
 <div>
-  <div id="message-old">
-    <% @messages.each do |message| %>
-      <p><%= message.body %></p>
-    <% end %>
-  </div>
-  <div id="message-display">
+  <div id="messages-all">
+    <div id="message-old">
+      <% @messages.each do |message| %>
+        <p><%= message.body %></p>
+      <% end %>
+    </div>
+    <div id="message-display">
+    </div>
   </div>
   <div id="message-form">
     <%= form_for [ Message.new ], remote: true do |f| %>
@@ -13,7 +15,7 @@
           <%= f.text_field :body, id: 'message-input', class: 'input' %>
         </div>
         <div class="control">
-          <%= f.submit 'Send Message', class: 'button is-primary' %>
+          <%= f.submit 'Send Message', class: 'button is-primary', id: 'message-send' %>
         </div>
       </div>
     <% end %>

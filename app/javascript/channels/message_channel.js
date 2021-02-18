@@ -9,9 +9,11 @@ const messageChannel = consumer.subscriptions.create("MessageChannel", {
   },
 
   received(data) {
-    console.log(data)
     const messageDisplay = document.querySelector('#message-display')
     messageDisplay.insertAdjacentHTML('beforeend', this.template(data))
+    
+    const display = document.getElementById('messages-all')
+    display.scrollTop = display.scrollHeight
   },
 
   template(data) {
@@ -41,3 +43,10 @@ document.addEventListener("turbolinks:load", () => {
   }
 })
 */
+document.addEventListener("turbolinks:load", () => {
+  const sender = document.getElementById('message-send')
+  const input = document.getElementById('message-input')
+  sender.addEventListener('click', () => {
+    setTimeout(() => { input.value = '' }, 100)
+  })
+})
